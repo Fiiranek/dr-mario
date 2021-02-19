@@ -1,0 +1,128 @@
+body {
+  margin: 0;
+  background-color: black;
+  overflow: hidden;
+}
+
+#main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+#container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-image: url(./img/pf.png);
+  width: 640px;
+  height: 384px;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+#board {
+  position: relative;
+  width: 128px;
+  height: 256px;
+  left: 272px;
+  top: 96px;
+}
+
+#bckgBoard {
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  width: 640px;
+  height: 384px;
+  top: -256px;
+  /* border: 1px solid red; */
+}
+
+.tile {
+  float: left;
+  height: 16px;
+  width: 16px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 10;
+}
+.bckgTile {
+  height: 16px;
+  width: 16px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 5;
+}
+#startBtn {
+  z-index: 10;
+  padding: 10px;
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.score-row {
+  position: relative;
+  display: flex;
+}
+#score {
+  left: 80px;
+  top: 80px;
+}
+#top {
+  left: 80px;
+  top: 113px;
+}
+.digit {
+  width: 16px;
+  height: 16px;
+}
+#gameOverPanel {
+  z-index: 12;
+  position: relative;
+  top: -602px;
+  left: 224px;
+  width: 224px;
+}
+#gameOverDr {
+  z-index: 12;
+  position: relative;
+  top: -650px;
+  left: 245px;
+  width: 120px;
+  height: 120px;
+}
+#gameOverScreen {
+  display: none;
+}
+#viruses {
+  position: relative;
+  top: -200px;
+}
+.virus {
+  position: relative;
+  width: 64px;
+  height: 48px;
+  /* border: 0.5px solid red; */
+}
+#virusYellow{
+  top: -184px;
+  left: 60px;
+}
+#virusBlue{
+  top: -135px;
+  left: -73px;
+}
+#virusBrown{
+  top: -200px;
+  left: 52px;
+}
