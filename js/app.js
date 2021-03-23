@@ -114,6 +114,17 @@ const game = {
         this.setHand("up")
         this.moveViruses(0)
         this.refreshBoard(this.tiles, this.bckgTiles)
+
+        let virusesMoveIntervalCounter = 0
+        this.virusesMoveInterval = setInterval(() => {
+            setTimeout(() => this.setViruses(1), 200)
+            setTimeout(() => this.setViruses(2), 400)
+            setTimeout(() => this.setViruses(3), 600)
+            setTimeout(() => this.setViruses(2), 800)
+            if (virusesMoveIntervalCounter == 17) virusesMoveIntervalCounter = 0
+            this.moveViruses(virusesMoveIntervalCounter)
+            virusesMoveIntervalCounter++;
+        }, 1000)
     },
     setHand(position) {
         if (position == "up") {
@@ -161,192 +172,41 @@ const game = {
         this.movingViruses.blue.src = `./img/lupa/bl/${position}.png`;
         this.movingViruses.brown.src = `./img/lupa/br/${position}.png`;
     },
+    setVirusesPositions(ylTop, ylLeft, blTop, blLeft, brTop, brLeft) {
+        this.movingViruses.yellow.style.top = `${ylTop}px`;
+        this.movingViruses.yellow.style.left = `${ylLeft}px`;
+        this.movingViruses.blue.style.top = `${blTop}px`;
+        this.movingViruses.blue.style.left = `${blLeft}px`;
+        this.movingViruses.brown.style.top = `${brTop}px`;
+        this.movingViruses.brown.style.left = `${brLeft}px`;
+    },
     moveViruses(stage) {
-        if (stage == 0) {
-            this.movingViruses.yellow.style.top = "-216px";
-            this.movingViruses.yellow.style.left = "44px";
-
-            this.movingViruses.blue.style.top = "-135px";
-            this.movingViruses.blue.style.left = "-41px";
-
-            this.movingViruses.brown.style.top = "-184px";
-            this.movingViruses.brown.style.left = "32px";
-        }
-        if (stage == 1) {
-            this.movingViruses.yellow.style.top = "-216px";
-            this.movingViruses.yellow.style.left = "28px";
-
-            this.movingViruses.blue.style.top = "-135px";
-            this.movingViruses.blue.style.left = "-25px";
-
-            this.movingViruses.brown.style.top = "-168px";
-            this.movingViruses.brown.style.left = "32px";
-        }
-        if (stage == 2) {
-
-            this.movingViruses.yellow.style.top = "-216px";
-            this.movingViruses.yellow.style.left = "12px";
-
-            this.movingViruses.blue.style.top = "-151px";
-            this.movingViruses.blue.style.left = "-9px";
-
-            this.movingViruses.brown.style.top = "-152px";
-            this.movingViruses.brown.style.left = "48px";
-        }
-        if (stage == 3) {
-
-            this.movingViruses.yellow.style.top = "-216px";
-            this.movingViruses.yellow.style.left = "-4px";
-
-            this.movingViruses.blue.style.top = "-167px";
-            this.movingViruses.blue.style.left = "-9px";
-
-            this.movingViruses.brown.style.top = "-136px";
-            this.movingViruses.brown.style.left = "48px";
-        }
-        if (stage == 4) {
-
-            this.movingViruses.yellow.style.top = "-200px";
-            this.movingViruses.yellow.style.left = "-20px";
-
-            this.movingViruses.blue.style.top = "-183px";
-            this.movingViruses.blue.style.left = "-9px";
-
-            this.movingViruses.brown.style.top = "-136px";
-            this.movingViruses.brown.style.left = "64px";
-        }
-
-
-        if (stage == 5) {
-
-            this.movingViruses.yellow.style.top = "-184px";
-            this.movingViruses.yellow.style.left = "-36px";
-
-            this.movingViruses.blue.style.top = "-199px";
-            this.movingViruses.blue.style.left = "-9px";
-
-            this.movingViruses.brown.style.top = "-136px";
-            this.movingViruses.brown.style.left = "80px";
-        }
-        if (stage == 6) {
-
-            this.movingViruses.yellow.style.top = "-184px";
-            this.movingViruses.yellow.style.left = "-36px";
-
-            this.movingViruses.blue.style.top = "-215px";
-            this.movingViruses.blue.style.left = "-25px";
-
-            this.movingViruses.brown.style.top = "-136px";
-            this.movingViruses.brown.style.left = "96px";
-        }
-        if (stage == 7) {
-
-            this.movingViruses.yellow.style.top = "-168px";
-            this.movingViruses.yellow.style.left = "-36px";
-
-            this.movingViruses.blue.style.top = "-215px";
-            this.movingViruses.blue.style.left = "-41px";
-
-            this.movingViruses.brown.style.top = "-136px";
-            this.movingViruses.brown.style.left = "112px";
-        }
-        if (stage == 8) {
-
-            this.movingViruses.yellow.style.top = "-152px";
-            this.movingViruses.yellow.style.left = "-20px";
-
-            this.movingViruses.blue.style.top = "-215px";
-            this.movingViruses.blue.style.left = "-57px";
-
-            this.movingViruses.brown.style.top = "-152px";
-            this.movingViruses.brown.style.left = "128px";
-        }
-        if (stage == 9) {
-
-            this.movingViruses.yellow.style.top = "-136px";
-            this.movingViruses.yellow.style.left = "-20px";
-
-            this.movingViruses.blue.style.top = "-215px";
-            this.movingViruses.blue.style.left = "-73px";
-
-            this.movingViruses.brown.style.top = "-168px";
-            this.movingViruses.brown.style.left = "128px";
-        }
-        if (stage == 10) {
-
-            this.movingViruses.yellow.style.top = "-136px";
-            this.movingViruses.yellow.style.left = "-4px";
-
-            this.movingViruses.blue.style.top = "-199px";
-            this.movingViruses.blue.style.left = "-89px";
-
-            this.movingViruses.brown.style.top = "-184px";
-            this.movingViruses.brown.style.left = "128px";
-        }
-        if (stage == 11) {
-
-            this.movingViruses.yellow.style.top = "-136px";
-            this.movingViruses.yellow.style.left = "12px";
-
-            this.movingViruses.blue.style.top = "-183px";
-            this.movingViruses.blue.style.left = "-105px";
-
-            this.movingViruses.brown.style.top = "-200px";
-            this.movingViruses.brown.style.left = "128px";
-        }
-        if (stage == 12) {
-
-            this.movingViruses.yellow.style.top = "-136px";
-            this.movingViruses.yellow.style.left = "28px";
-
-            this.movingViruses.blue.style.top = "-183px";
-            this.movingViruses.blue.style.left = "-105px";
-
-            this.movingViruses.brown.style.top = "-216px";
-            this.movingViruses.brown.style.left = "112px";
-        }
-        if (stage == 13) {
-
-            this.movingViruses.yellow.style.top = "-136px";
-            this.movingViruses.yellow.style.left = "44px";
-
-            this.movingViruses.blue.style.top = "-167px";
-            this.movingViruses.blue.style.left = "-105px";
-
-            this.movingViruses.brown.style.top = "-216px";
-            this.movingViruses.brown.style.left = "100px";
-        }
-        if (stage == 14) {
-            this.movingViruses.yellow.style.top = "-152px";
-            this.movingViruses.yellow.style.left = "60px";
-
-            this.movingViruses.blue.style.top = "-151px";
-            this.movingViruses.blue.style.left = "-89px";
-
-            this.movingViruses.brown.style.top = "-216px";
-            this.movingViruses.brown.style.left = "84px";
-        }
-        if (stage == 15) {
-            this.movingViruses.yellow.style.top = "-168px";
-            this.movingViruses.yellow.style.left = "60px";
-
-            this.movingViruses.blue.style.top = "-135px";
-            this.movingViruses.blue.style.left = "-89px";
-
-            this.movingViruses.brown.style.top = "-216px";
-            this.movingViruses.brown.style.left = "68px";
-        }
-
-        if (stage == 16) {
-            this.movingViruses.yellow.style.top = "-184px";
-            this.movingViruses.yellow.style.left = "60px";
-
-            this.movingViruses.blue.style.top = "-135px";
-            this.movingViruses.blue.style.left = "-73px";
-
-            this.movingViruses.brown.style.top = "-200px";
-            this.movingViruses.brown.style.left = "52px";
-        }
+        if (stage == 0) this.setVirusesPositions(-216, 44, -135, -41, -184, 32)
+        if (stage == 1) this.setVirusesPositions(-216, 28, -135, -25, -168, 32)
+        if (stage == 2) this.setVirusesPositions(-216, 12, -151, -9, -152, 48)
+        if (stage == 3) this.setVirusesPositions(-216, -4, -167, -9, -136, 48)
+        if (stage == 4) this.setVirusesPositions(-200, -20, -183, -9, -136, 64)
+        if (stage == 5) this.setVirusesPositions(-184, -36, -199, -9, -136, 80)
+        if (stage == 6) this.setVirusesPositions(-184, -36, -215, -25, -136, 96)
+        if (stage == 7) this.setVirusesPositions(-168, -36, -215, -41, -136, 112)
+        if (stage == 8) this.setVirusesPositions(-152, -20, -215, -57, -152, 128)
+        if (stage == 9) this.setVirusesPositions(-136, -20, -215, -73, -168, 128)
+        if (stage == 10) this.setVirusesPositions(-136, -4, -199, -89, -184, 128)
+        if (stage == 11) this.setVirusesPositions(-136, 12, -183, -105, -200, 128)
+        if (stage == 12) this.setVirusesPositions(-136, 28, -183, -105, -216, 112)
+        if (stage == 13) this.setVirusesPositions(-136, 44, -167, -105, -216, 100)
+        if (stage == 14) this.setVirusesPositions(-152, 60, -151, -89, -216, 84)
+        if (stage == 15) this.setVirusesPositions(-168, 60, -135, -89, -216, 68)
+        if (stage == 16) this.setVirusesPositions(-184, 60, -135, -73, -200, 52)
+    },
+    rotateHandPillLeft() {
+        this.handPill.rotate("left", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
+        this.refreshBoard(this.tiles, this.bckgTiles)
+    },
+    rotateAndMoveHandPillLeft() {
+        this.handPill.move("left", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
+        this.handPill.rotate("left", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
+        this.refreshBoard(this.tiles, this.bckgTiles)
     },
     throwPill() {
         this.generateNewPill()
@@ -356,10 +216,7 @@ const game = {
         setTimeout(() => {
 
             this.isKeyboardLocked = true;
-            setTimeout(() => {
-                this.handPill.rotate("left", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
-                this.refreshBoard(this.tiles, this.bckgTiles)
-            }, throwInterval)
+            setTimeout(() => this.rotateHandPillLeft(), throwInterval)
             setTimeout(() => {
                 this.handPill.rotate("left", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
                 this.handPill.move("up", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
@@ -368,8 +225,7 @@ const game = {
             }, throwInterval * 2)
             setTimeout(() => {
                 this.setHand("middle")
-                this.handPill.rotate("left", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
-                this.refreshBoard(this.tiles, this.bckgTiles)
+                this.rotateHandPillLeft()
             }, throwInterval * 3)
             setTimeout(() => {
                 this.handPill.rotate("left", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
@@ -377,30 +233,47 @@ const game = {
                 this.handPill.move("left", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
                 this.refreshBoard(this.tiles, this.bckgTiles)
             }, throwInterval * 4)
-            for (let i = 0; i <= 7; i++) {
-                setTimeout(() => {
-                    this.setHand("down")
-                    this.handPill.move("left", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
-                    this.refreshBoard(this.tiles, this.bckgTiles)
-                }, throwInterval * 5 + i * throwInterval)
-            }
+            setTimeout(() => this.rotateHandPillLeft(), throwInterval * 5)
+            setTimeout(() => this.rotateAndMoveHandPillLeft(), throwInterval * 6)
+            setTimeout(() => {
+                this.setHand("down")
+                this.rotateHandPillLeft()
+            }, throwInterval * 7)
+            setTimeout(() => this.rotateAndMoveHandPillLeft(), throwInterval * 8)
+            setTimeout(() => this.rotateHandPillLeft(), throwInterval * 9)
+            setTimeout(() => this.rotateAndMoveHandPillLeft(), throwInterval * 10)
+            setTimeout(() => this.rotateHandPillLeft(), throwInterval * 11)
+            setTimeout(() => this.rotateAndMoveHandPillLeft(), throwInterval * 12)
+            setTimeout(() => this.rotateHandPillLeft(), throwInterval * 13)
+            setTimeout(() => this.rotateAndMoveHandPillLeft(), throwInterval * 14)
+            setTimeout(() => this.rotateHandPillLeft(), throwInterval * 15)
+            setTimeout(() => this.rotateAndMoveHandPillLeft(), throwInterval * 16)
+            setTimeout(() => this.rotateHandPillLeft(), throwInterval * 17)
+            setTimeout(() => {
+                this.handPill.move("left", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
+                this.handPill.move("down", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
+                this.handPill.rotate("left", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
+                this.refreshBoard(this.tiles, this.bckgTiles)
+            }, throwInterval * 18)
+            setTimeout(() => this.rotateHandPillLeft(), throwInterval * 19)
+            setTimeout(() => this.rotateAndMoveHandPillLeft(), throwInterval * 20)
             for (let i = 0; i <= 4; i++) {
                 setTimeout(() => {
                     this.handPill.move("down", this.bckgTiles, this.tiles, this.bckgTiles, this.refreshBoard)
                     this.refreshBoard(this.tiles, this.bckgTiles)
                     if (i == 4) {
                         this.setHand("up")
-                        this.bckgTiles[6][20].free()
-                        this.bckgTiles[6][21].free()
                         this.refreshBoard(this.tiles, this.bckgTiles)
                         this.isKeyboardLocked = false;
                         this.generateNextPill()
+                        this.bckgTiles[6][20].free()
+                        this.bckgTiles[6][21].free()
+                        this.isKeyboardLocked = false;
                     }
-                }, throwInterval * 12 + i * throwInterval + 100)
+                }, throwInterval * 21 + i * throwInterval)
             }
-        }, 400)
-
-
+            //}, 400)
+        }, 10)
     },
     refreshScore() {
         let topScore = localStorage.getItem("topScore")
@@ -445,7 +318,7 @@ const game = {
             let y = Math.floor(Math.random() * this.height)
             let color = this.virusColors[i % this.virusColors.length];
 
-            while (y <= 12) y = Math.floor(Math.random() * this.height)
+            while (y <= 5) y = Math.floor(Math.random() * this.height)
             let checkIfOccuped = true;
             let isVirusSameCoords = false;
             while (checkIfOccuped) {
@@ -459,6 +332,7 @@ const game = {
                     checkIfOccuped = true
                     x = Math.floor(Math.random() * this.width)
                     y = Math.floor(Math.random() * this.height)
+                    while (y <= 5) y = Math.floor(Math.random() * this.height)
                 }
                 else {
                     checkIfOccuped = false;
@@ -720,16 +594,6 @@ const game = {
         this.throwPill()
         this.gameInterval = setInterval(() => this.intervalFunction(), this.delay)
         this.refreshBoard(this.tiles, this.bckgTiles)
-        let virusesMoveIntervalCounter = 0
-        this.virusesMoveInterval = setInterval(() => {
-            setTimeout(() => this.setViruses(1), 200)
-            setTimeout(() => this.setViruses(2), 400)
-            setTimeout(() => this.setViruses(3), 600)
-            setTimeout(() => this.setViruses(2), 800)
-            if (virusesMoveIntervalCounter == 17) virusesMoveIntervalCounter = 0
-            this.moveViruses(virusesMoveIntervalCounter)
-            virusesMoveIntervalCounter++;
-        }, 1000)
     },
     gameOver() {
         if (!this.tiles[0][3].isFree() || !this.tiles[0][4].isFree()) {
@@ -751,10 +615,4 @@ const game = {
 
 
 game.init()
-const startBtn = document.getElementById('startBtn');
-startBtn.onclick = function () {
-    game.start()
-}
-window.game = game
-
-
+setTimeout(()=>game.start(),2000)

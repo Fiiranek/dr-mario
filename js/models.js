@@ -22,9 +22,7 @@ export class Tile {
         board.appendChild(tileDiv);
     }
     refresh = () => {
-        //document.getElementById(`${this.x}${this.y}`).style.background = this.color;
         document.getElementById(this.divID).dataset.pillid = this.pillID;
-        //document.getElementById(`${this.x}${this.y}`).innerHTML = this.pillID
 
         if (this.isSingle) {
             if (this.color == "yellow") {
@@ -242,7 +240,6 @@ export class Pill {
                     tiles[y1][x1 + 1].free()
                     this.coords.x1 -= 1
                     this.coords.x2 -= 1
-                    //refreshBoard(tiles, bckgTiles)
                     refreshBoard(boardTiles, bckgTiles)
                     return;
                 }
@@ -255,7 +252,6 @@ export class Pill {
                     tiles[y1][x1].free()
                     this.coords.x1 += 1
                     this.coords.x2 += 1
-                    //refreshBoard(tiles, bckgTiles)
                     refreshBoard(boardTiles, bckgTiles)
                     return;
                 }
@@ -272,7 +268,6 @@ export class Pill {
                     tiles[y2][x1].free()
                     this.coords.x1 -= 1
                     this.coords.x2 = this.coords.x1
-                    //refreshBoard(tiles, bckgTiles)
                     refreshBoard(boardTiles, bckgTiles)
                     return;
                 }
@@ -287,7 +282,6 @@ export class Pill {
                     tiles[y2][x1].free()
                     this.coords.x1 += 1
                     this.coords.x2 = this.coords.x1
-                    //refreshBoard(tiles, bckgTiles)
                     refreshBoard(boardTiles, bckgTiles)
                     return;
                 }
@@ -313,7 +307,6 @@ export class Pill {
                     tiles[y1][x1].modify(this.colorBottom, this.ID, "bottom")
                     tiles[y1][x1 + 1].free()
                     this.position = "vertical"
-                    //refreshBoard(tiles, bckgTiles)
                     refreshBoard(boardTiles, bckgTiles)
                     return;
                 }
@@ -330,7 +323,6 @@ export class Pill {
                     tiles[y2][x1].modify(this.colorTop, this.ID, "top")
                     tiles[y1][x1 + 1].free()
                     this.position = "vertical"
-                    //refreshBoard(tiles, bckgTiles)
                     refreshBoard(boardTiles, bckgTiles)
                     return;
                 }
@@ -349,7 +341,6 @@ export class Pill {
                     tiles[y1][x1].modify(this.colorRight, this.ID, "right")
                     tiles[y2][x2].free()
                     this.position = "horizontal"
-                    //refreshBoard(tiles, bckgTiles)
                     refreshBoard(boardTiles, bckgTiles)
                     return;
                 }
@@ -362,7 +353,6 @@ export class Pill {
                     tiles[y1][x1 + 1].modify(this.colorRight, this.ID, "right")
                     tiles[y2][x1].free()
                     this.position = "horizontal"
-                    //refreshBoard(tiles, bckgTiles)
                     refreshBoard(boardTiles, bckgTiles)
                     return;
                 }
@@ -379,7 +369,6 @@ export class Pill {
                     tiles[y1][x1].modify(this.colorRight, this.ID, "right")
                     tiles[y2][x2].free()
                     this.position = "horizontal"
-                    //refreshBoard(tiles, bckgTiles)
                     refreshBoard(boardTiles, bckgTiles)
                     return;
                 }
@@ -392,7 +381,6 @@ export class Pill {
                     tiles[y1][x1 + 1].modify(this.colorRight, this.ID, "right")
                     tiles[y2][x1].free()
                     this.position = "horizontal"
-                    //refreshBoard(tiles, bckgTiles)
                     refreshBoard(boardTiles, bckgTiles)
                     return;
                 }
@@ -467,14 +455,5 @@ export class Pill {
             if (tiles[this.coords.y1 + 1][this.coords.x1].isFree() && tiles[this.coords.y1 + 1][this.coords.x2].isFree()) return true
         }
         return false
-    }
-}
-
-class Game {
-    constructor(level, virusesNumber, color, delay) {
-        this.level = level;
-        this.virusesNumber = virusesNumber;
-        this.color = color;
-        this.delay = delay;
     }
 }
